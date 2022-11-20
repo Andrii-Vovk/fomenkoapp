@@ -12,9 +12,7 @@ const HistoryMap: FunctionComponent<HistoryMapProps> = (props) => {
     const options = {
         region: "UA",
         resolution: "provinces",
-        colorAxis: { colors: ["#A0AEC0", "#2D3748"] },
-        datalessRegionColor: "#EDF2F7",
-        defaultColor: "#EDF2F7",
+        colorAxis: { colors: ["#B2F5EA", "#38B2AC"] },
     };
 
     return (<Chart
