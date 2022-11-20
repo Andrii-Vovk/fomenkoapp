@@ -4,8 +4,13 @@ import './App.css';
 import Graph from "./pages/Graph";
 import Home from "./pages/Home";
 import DefaultLayout from "./ui/components/DefaultLayout";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />
+  },
   {
     path: "/",
     element: <DefaultLayout>
