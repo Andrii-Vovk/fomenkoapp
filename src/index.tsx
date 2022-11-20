@@ -8,37 +8,18 @@ import {
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Graph from './routes/Graph';
-import Home from './routes/Home';
+import Graph from './pages/Graph';
+import Home from './pages/Home';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-
-// Maybe use createHashRouter instead?
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/graph",
-    element: <Graph />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "*",
-    element: <Navigate to="/" replace />,
-  }
-]);
+//Maybe блять зробити раутинг в апі як всі люди?
 
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <RouterProvider router={router} />
+      <App />
     </ChakraProvider>
   </React.StrictMode>
 );

@@ -1,16 +1,32 @@
-import { Link } from "react-router-dom";
+import { createBrowserRouter, Link, Navigate, RouterProvider } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
+import Graph from "./pages/Graph";
+import Home from "./pages/Home";
+import DefaultLayout from "./ui/components/DefaultLayout";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <DefaultLayout>
+      <Home />
+    </DefaultLayout>,
+  },
+  {
+    path: "/user-search",
+    element: <DefaultLayout>
+      <Graph />
+    </DefaultLayout>,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />,
+  }
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Link to="/graph">Graph</Link>
-        <Link to="/home">Home</Link>
-      </header>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
