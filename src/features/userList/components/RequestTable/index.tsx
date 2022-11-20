@@ -89,7 +89,7 @@ const RequestTable: React.FC<RequestTableProps> = ({ requests }) => {
                   </Td>
                   {request.description && (
                     <Td>
-                      <Popover>
+                      <Popover trigger="hover">
                         <PopoverTrigger>
                           <IconButton
                             aria-label="info button"
@@ -102,10 +102,6 @@ const RequestTable: React.FC<RequestTableProps> = ({ requests }) => {
                         <PopoverContent>
                           <PopoverArrow />
                           <PopoverCloseButton />
-                          <PopoverHeader>
-                            {statuses[request.status]?.popover ??
-                              request.status}
-                          </PopoverHeader>
                           <PopoverBody>{request.description}</PopoverBody>
                         </PopoverContent>
                       </Popover>

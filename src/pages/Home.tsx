@@ -6,6 +6,8 @@ import ChartCard from "../features/charts/components/chartCard";
 import Graph from "./Graph";
 import HistoryMap from "../features/charts/components/historyMap";
 import DocumentsData from "../ui/components/DocumentsData";
+import RequestTable, { RefugeeHelpRequest } from "../features/userList/components/RequestTable";
+import IncomePieChart from "../features/charts/components/incomePieChart";
 
 const Home = () => {
 
@@ -32,6 +34,15 @@ const Home = () => {
         { type: 'helsi', text: 'Має сифіліс, СНІД, герпес, гонорею та інші хвороби що передаються статевим шляхом' },
     ]
 
+    const mockRequests: RefugeeHelpRequest[] = [
+        {
+            createdAt: new Date(),
+            name: 'Pussy request',
+            status: "in review",
+            description: 'Хроні'
+        }
+    ]
+
     return (
         <Box pl={'2em'} pt={'2em'}>
             <Heading fontSize={'3em'} fontWeight={500} mb={'1rem'}>Ваша статистика</Heading>
@@ -39,6 +50,9 @@ const Home = () => {
                 <BasicInfoCard {...mockBasicInfoCardData} />
                 <ChartCard cardTitle="Історія місця проживання" chartElement={<HistoryMap data={historyMapData} />} />
                 <DocumentsData documentData={documentData}/>
+                <ChartCard cardTitle="Дохід" chartElement={<IncomePieChart aid={6000} salary={3000}/>} />
+                <RequestTable requests={mockRequests}/>
+                
             </Masonry>
         </Box>
     );
