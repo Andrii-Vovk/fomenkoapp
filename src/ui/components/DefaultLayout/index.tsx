@@ -10,7 +10,7 @@ interface DefaultLayoutProps {
 const DefaultLayout: FunctionComponent<DefaultLayoutProps> = (props) => {
     return (<Flex>
         <Navbar />
-        <Box flex={1} height={'100vh'}>{props.children}</Box>
+        <Box flex={1} height={'100vh'} pr={'2em'}>{props.children}</Box>
     </Flex>);
 }
  
