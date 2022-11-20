@@ -3,16 +3,19 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import Graph from "./pages/Graph";
 import Home from "./pages/Home";
 import DefaultLayout from "./ui/components/DefaultLayout";
 import Login from "./pages/Login";
 import UserList from "./pages/UserList";
+import "dayjs/locale/uk";
+import dayjs from "dayjs";
+
+dayjs.locale("uk");
 
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
   {
     path: "/",
