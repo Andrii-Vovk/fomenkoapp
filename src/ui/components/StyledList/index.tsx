@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import styles from "./styles.module.scss";
 
 export interface ListItem {
-  text: string;
+  text: React.ReactNode;
   icon: React.ReactNode;
 }
 
