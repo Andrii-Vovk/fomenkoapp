@@ -1,18 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
-import {
-  createBrowserRouter, RouterProvider, Navigate,
-} from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
 
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import Graph from './pages/Graph';
-import Home from './pages/Home';
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 //Maybe блять зробити раутинг в апі як всі люди?
 

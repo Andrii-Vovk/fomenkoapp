@@ -1,0 +1,11 @@
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.list {
+  margin-top: 3rem;
+}
