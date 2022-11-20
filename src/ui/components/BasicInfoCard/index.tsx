@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { Avatar, Card, CardBody, Text } from "@chakra-ui/react";
 import StyledList, { ListItem } from "../StyledList";
 
-interface Props {
+export interface BasicInfoCardProps {
   imageSrc: string;
   name: string;
   gender: "male" | "female";
@@ -10,7 +10,7 @@ interface Props {
   list: ListItem[];
 }
 
-const BasicInfoCard: React.FC<Props> = ({
+const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
   imageSrc,
   name,
   gender,
@@ -26,7 +26,7 @@ const BasicInfoCard: React.FC<Props> = ({
             <Text fontSize="5xl" as="h3">
               {name}
             </Text>
-            <Text fontSize="3xl" color="gray.200">
+            <Text fontSize="3xl" color="gray.400">
               {gender === "male" ? "Чоловік" : "Жінка"}, {age}
             </Text>
           </div>

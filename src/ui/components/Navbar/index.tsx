@@ -39,13 +39,13 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
     return (<VStack
         boxShadow={'0px 0px 15px -3px rgba(0, 0, 0, 0.1), 10px 0px 6px -3px rgba(0, 0, 0, 0.05)'}
         height={'100vh'}
-        width={'72px'}
+        width={'90px'}
         p={'1.25em 1em 1em 1em'}
     >
         {navItems.map(e => {
             return <Center 
-                h={'40px'} 
-                w={'40px'} 
+                h={'60px'} 
+                w={'60px'} 
                 bg={'#E2E8F0'} 
                 borderRadius={'6px'} 
                 cursor={'pointer'} 
@@ -53,7 +53,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                 transition="all 0.3s"
                 _hover={{transform: 'scale(1.1)'}}
             >
-                <Icon as={e.icon} fontSize={'24px'} />
+                <Icon as={e.icon} fontSize={'40px'} />
             </Center>
         })}
     </VStack>);
