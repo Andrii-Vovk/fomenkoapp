@@ -4,14 +4,18 @@ import Navbar from "../Navbar";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface DefaultLayoutProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
- 
+
 const DefaultLayout: FunctionComponent<DefaultLayoutProps> = (props) => {
-    return (<Flex>
-        <Navbar />
-        <Box flex={1} height={'100vh'} pr={'2em'}>{props.children}</Box>
-    </Flex>);
-}
- 
+  return (
+    <Flex>
+      <Navbar />
+      <Box flex={1} height={"100vh"} pr={"2em"}>
+        {props.children}
+      </Box>
+    </Flex>
+  );
+};
+
 export default DefaultLayout;

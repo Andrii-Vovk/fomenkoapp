@@ -23,7 +23,7 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
         <div className={styles.headerWrapper}>
           <Avatar size="2xl" name={name} src={imageSrc} />
           <div className={styles.titleWrapper}>
-            <Text fontSize="5xl" as="h3">
+            <Text fontSize="4xl" as="h3">
               {name}
             </Text>
             <Text fontSize="3xl" color="gray.400">
