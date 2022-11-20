@@ -42,6 +42,8 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
       height={"100vh"}
       width={"90px"}
       p={"1.25em 1em 1em 1em"}
+      position={'sticky'}
+      top={0}
     >
       {navItems.map((e) => {
         return (
