@@ -26,8 +26,8 @@ const BasicInfoCard: React.FC<Props> = ({
             <Text fontSize="5xl" as="h3">
               {name}
             </Text>
-            <Text fontSize="3xl">
-              {gender}, {age}
+            <Text fontSize="3xl" color="gray.200">
+              {gender === "male" ? "Чоловік" : "Жінка"}, {age}
             </Text>
           </div>
         </div>
