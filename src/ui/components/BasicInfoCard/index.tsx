@@ -1,12 +1,5 @@
 import styles from "./styles.module.scss";
-import {
-  Avatar,
-  Card,
-  CardBody,
-  CardHeader,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
+import { Avatar, Card, CardBody, Text } from "@chakra-ui/react";
 import StyledList, { ListItem } from "../StyledList";
 
 interface Props {
@@ -26,9 +19,6 @@ const BasicInfoCard: React.FC<Props> = ({
 }) => {
   return (
     <Card>
-      <CardHeader>
-        <Heading size="md">Contact Info</Heading>
-      </CardHeader>
       <CardBody>
         <div className={styles.headerWrapper}>
           <Avatar size="2xl" name={name} src={imageSrc} />

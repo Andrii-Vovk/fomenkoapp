@@ -3,14 +3,15 @@ import { Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
 import StyledList, { ListItem } from "../StyledList";
 
 interface Props {
+  title: React.ReactNode;
   list: ListItem[];
 }
 
-const BasicInfoCard: React.FC<Props> = ({ list }) => {
+const ListInfoCard: React.FC<Props> = ({ list, title }) => {
   return (
     <Card>
       <CardHeader>
-        <Heading size="md">Contact Info</Heading>
+        <Heading size="md">{title}</Heading>
       </CardHeader>
       <CardBody>
         <div className={styles.list}>
@@ -21,4 +22,4 @@ const BasicInfoCard: React.FC<Props> = ({ list }) => {
   );
 };
 
-export default BasicInfoCard;
+export default ListInfoCard;
