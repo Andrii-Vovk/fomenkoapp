@@ -7,6 +7,7 @@ import Graph from "./pages/Graph";
 import Home from "./pages/Home";
 import DefaultLayout from "./ui/components/DefaultLayout";
 import Login from "./pages/Login";
+import UserList from "./pages/UserList";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     path: "/user-search",
     element: (
       <DefaultLayout>
-        <Graph />
+        <UserList />
       </DefaultLayout>
     ),
   },
