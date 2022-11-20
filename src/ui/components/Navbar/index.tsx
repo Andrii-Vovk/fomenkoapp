@@ -50,6 +50,8 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                 borderRadius={'6px'} 
                 cursor={'pointer'} 
                 onClick={() => navigate(e.link)}
+                transition="all 0.3s"
+                _hover={{transform: 'scale(1.1)'}}
             >
                 <Icon as={e.icon} fontSize={'24px'} />
             </Center>
