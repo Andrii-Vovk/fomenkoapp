@@ -4,8 +4,8 @@ import useUserStore, { SignInUser } from "../../../store";
 
 interface Props {
   children: React.ReactNode;
-  role: UserRole | UserRole[];
-  fallback: string;
+  role?: UserRole | UserRole[];
+  fallback?: string;
 }
 
 const getHasAccess = (role: UserRole | UserRole[], user: SignInUser) => {
@@ -19,7 +19,7 @@ const ProtectedRoute: React.FC<Props> = ({ children, role, fallback }) => {
   const navigate = useNavigate();
 
   const hasAccess = useMemo(
-    () => getHasAccess(role, store.user),
+    () => role ? getHasAccess(role, store.user) : true,
     [role, store.user]
   );
 
@@ -27,7 +27,7 @@ const ProtectedRoute: React.FC<Props> = ({ children, role, fallback }) => {
     if (store.user.userId == null) {
       navigate("/login");
     } else if (!hasAccess) {
-      navigate(fallback);
+      navigate(fallback || '/');
     }
   }, [store.user.userId, hasAccess]);
 
