@@ -14,7 +14,7 @@ import {
 import { FunctionComponent } from "react";
 
 interface UserListItselfProps {
-  users: User[];
+  users: UserFromUserList[];
 }
 
 const DEFAULT_PFP = "https://m.media-amazon.com/images/M/MV5BZGRjZTczNWItMDk3NS00YmI0LTlmOTktYTQ4ZWQ1MzI1NmRhXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_.jpg";

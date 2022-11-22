@@ -13,7 +13,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
   const store = useUserStore();
 
   const navItems: NavItem[] = [
-    {
+    store.user.role === "user" && {
       icon: BsHouseDoor,
       tooltip: "Go home",
       link: "/",
