@@ -1,5 +1,5 @@
 import axios from "axios";
-import { User } from "../store";
+import { SignInUser } from "../store";
 
 const API_BASE = "https://localhost:7000/api";
 
@@ -7,14 +7,14 @@ export function getUsers(): Promise<User[]> {
   return axios.get(`${API_BASE}/User`).then((res) => res.data as User[]);
 }
 
-type SingInRequestType = {
+interface SingInRequestType {
   username: string;
   password: string;
-};
+}
 
-export const signIn = (username: string, password: string): Promise<User> => {
-  return axios.post<SingInRequestType, User>(`${API_BASE}/Account`, {
-    username,
-    password,
-  });
+export const signIn = (loginData: SingInRequestType): Promise<SignInUser> => {
+  return axios.post<SingInRequestType, SignInUser>(
+    `${API_BASE}/Account`,
+    loginData
+  );
 };

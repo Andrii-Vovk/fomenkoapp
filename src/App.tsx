@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import UserList from "./pages/UserList";
 import "dayjs/locale/uk";
 import dayjs from "dayjs";
+import ProtectedRoute from "./ui/components/ProtectedRoute";
 
 dayjs.locale("uk");
 
@@ -20,17 +21,21 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <DefaultLayout>
-        <Home />
-      </DefaultLayout>
+      <ProtectedRoute>
+        <DefaultLayout>
+          <Home />
+        </DefaultLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/user-search",
     element: (
-      <DefaultLayout>
-        <UserList />
-      </DefaultLayout>
+      <ProtectedRoute>
+        <DefaultLayout>
+          <UserList />
+        </DefaultLayout>
+      </ProtectedRoute>
     ),
   },
   {

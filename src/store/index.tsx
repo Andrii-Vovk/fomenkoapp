@@ -1,6 +1,6 @@
 import create from "zustand";
 
-export interface User {
+export interface SignInUser {
   username: string;
   role: string;
   success?: boolean;
@@ -9,8 +9,8 @@ export interface User {
 }
 
 interface UserState {
-  user: User;
-  addUser(user: User): void;
+  user: SignInUser;
+  addUser(user: SignInUser): void;
   removeUser(): void;
 }
 
@@ -23,7 +23,7 @@ const initialState = {
 const useUserStore = create<UserState>((set) => ({
   user: initialState,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  addUser: (user: User) => set((state) => ({ user: user })),
+  addUser: (user: SignInUser) => set((state) => ({ user: user })),
   removeUser: () => set({ user: initialState }),
 }));
 
