@@ -27,8 +27,8 @@ const Login: FunctionComponent = () => {
 
   const { mutateAsync } = useMutation(signIn, {
     onSuccess: (user) => {
-      store.addUser(user);
-      ["organization", "admin"].includes(user.role)
+      store.addUser(user.data);
+      ["organization", "admin"].includes(user.data.role)
         ? navigate("/user-search")
         : navigate("/");
     },
