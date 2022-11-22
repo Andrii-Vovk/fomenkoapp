@@ -1,5 +1,6 @@
-import create from "zustand";
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import create, { StateCreator } from "zustand";
+import { persist, PersistOptions } from "zustand/middleware";
 export interface SignInUser {
   username: string;
   role: string;
@@ -20,11 +21,23 @@ const initialState = {
   error: "",
 };
 
-const useUserStore = create<UserState>((set) => ({
-  user: initialState,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  addUser: (user: SignInUser) => set((state) => ({ user: user })),
-  removeUser: () => set({ user: initialState }),
-}));
+type MyPersist = (
+  config: StateCreator<UserState>,
+  options: PersistOptions<UserState>
+) => StateCreator<UserState>;
+
+const useUserStore = create<UserState>(
+  (persist as MyPersist)(
+    (set) => ({
+      user: initialState,
+      addUser: (user: SignInUser) =>
+        set((state: UserState) => ({ user: user })),
+      removeUser: () => set({ user: initialState }),
+    }),
+    {
+      name: "user-storage",
+    }
+  )
+);
 
 export default useUserStore;
