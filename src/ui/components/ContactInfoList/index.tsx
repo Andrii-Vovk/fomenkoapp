@@ -20,7 +20,7 @@ const ContactInfoList: React.FC<ContactInfoListProps> = ({ items }) => {
             {item.icon}
             <Text fontSize="2xl">{item.title}</Text>
           </div>
-          <Text fontSize="2xl" color="gray.600">
+          <Text fontSize="xl" color="gray.600">
             {item.text}
           </Text>
         </li>

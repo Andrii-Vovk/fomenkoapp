@@ -15,7 +15,7 @@ const StyledList: React.FC<Props> = ({ items }) => {
     <ul className={styles.wrapper}>
       {items.map((item) => (
         <li className={styles.listItem}>
-          <Text fontSize="2xl">{item.text}</Text>
+          <Text fontSize="xl">{item.text}</Text>
           {item.icon}
         </li>
       ))}
