@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
 import BasicInfoCard, {
   BasicInfoCardProps,
 } from "../ui/components/BasicInfoCard";
@@ -32,11 +32,14 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import districts from "../config/districts";
 import ListInfoCard from "../ui/components/ListInfoCard";
+import { useParams } from "react-router-dom";
 dayjs.extend(relativeTime);
 
 const Home = () => {
   const store = useUserStore();
-  const userId = store.user.userId;
+  const { id: userParamId } = useParams();
+  const parsedUserParamId = userParamId ? +userParamId : null;
+  const userId = parsedUserParamId ?? store.user.userId;
 
   const { data: userData, isLoading: isUserLoading } = useQuery(
     ["get-user", userId],
@@ -143,7 +146,8 @@ const Home = () => {
     isUserLoading ||
     isLocationHistoryLoading ||
     documentsLoading ||
-    requestsLoading
+    requestsLoading ||
+    salaryLoading
   ) {
     return <FullPageLoader />;
   }
@@ -158,14 +162,28 @@ const Home = () => {
         <ContactList items={contactData} />
         <DocumentsData documentData={documentData} />
         <ListInfoCard list={needsList} title="Базові Потреби" />
-        <ChartCard
-          cardTitle="Історія місця проживання"
-          chartElement={<HistoryMap data={historyMapData} />}
-        />
+        {locationData?.data && locationData?.data.length > 0 ? (
+          <ChartCard
+            cardTitle="Історія місця проживання"
+            chartElement={<HistoryMap data={historyMapData} />}
+          />
+        ) : (
+          <Card>
+            <CardHeader pb={0}>
+              <Heading fontWeight={500} fontSize={"1.5rem"}>
+                Історія місця проживання
+              </Heading>
+            </CardHeader>
+            <CardBody>
+              Інформація про історію місць проживання відсутня
+            </CardBody>
+          </Card>
+        )}
         <ChartCard
           cardTitle="Дохід"
           chartElement={<IncomePieChart {...totalSalary} />}
         />
+        <pre>{JSON.stringify(locationData?.data, null, 2)}</pre>
         <RequestTable requests={requestsItems} />
         <ChartCard
           cardTitle="Графік доходів"

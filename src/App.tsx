@@ -25,8 +25,9 @@ const router = createBrowserRouter([
       <ProtectedRoute>
         <Main />
       </ProtectedRoute>
-    )
-  }, {
+    ),
+  },
+  {
     path: "/home",
     element: (
       <ProtectedRoute role="user" fallback="/user-search">
@@ -37,9 +38,19 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/user/:id",
+    element: (
+      <ProtectedRoute role={["admin", "organization"]} fallback="/">
+        <DefaultLayout>
+          <Home />
+        </DefaultLayout>
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: "/user-search",
     element: (
-      <ProtectedRoute role={["organization", "admin"]} fallback='/'>
+      <ProtectedRoute role={["organization", "admin"]} fallback="/">
         <DefaultLayout>
           <UserList />
         </DefaultLayout>

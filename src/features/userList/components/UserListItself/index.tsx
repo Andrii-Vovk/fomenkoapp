@@ -12,14 +12,18 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface UserListItselfProps {
   users: UserFromUserList[];
 }
 
-const DEFAULT_PFP = "https://m.media-amazon.com/images/M/MV5BZGRjZTczNWItMDk3NS00YmI0LTlmOTktYTQ4ZWQ1MzI1NmRhXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_.jpg";
+const DEFAULT_PFP =
+  "https://m.media-amazon.com/images/M/MV5BZGRjZTczNWItMDk3NS00YmI0LTlmOTktYTQ4ZWQ1MzI1NmRhXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_.jpg";
 
 const UserListItself: FunctionComponent<UserListItselfProps> = (props) => {
+  const navigate = useNavigate();
+
   return (
     <TableContainer>
       <Table>
@@ -38,6 +42,7 @@ const UserListItself: FunctionComponent<UserListItselfProps> = (props) => {
                 _hover={{ bg: "rgba(0, 0, 20, 0.02)" }}
                 transition={"all 0.3s"}
                 cursor={"pointer"}
+                onClick={() => navigate(`/user/${e.id}`)}
               >
                 <Td>
                   <Avatar src={e.profileUrl || DEFAULT_PFP} />
