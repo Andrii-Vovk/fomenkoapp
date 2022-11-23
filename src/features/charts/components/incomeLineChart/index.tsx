@@ -12,6 +12,7 @@ import {
   BarController,
   Filler,
 } from "chart.js";
+import zoomPlugin from 'chartjs-plugin-zoom';
 import { Chart } from "react-chartjs-2";
 
 ChartJS.register(
@@ -24,7 +25,8 @@ ChartJS.register(
   Legend,
   Tooltip,
   LineController,
-  BarController
+  BarController,
+  zoomPlugin
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -40,6 +42,24 @@ const padToTwelve = (array: number[]) => [
     .slice(0, -1 * array.length),
   ...array.slice(-12),
 ];
+
+const DEFAULT_OPTIONS = {
+  plugins: {
+    zoom: {
+      zoom: {
+        wheel: {
+          enabled: true,
+        },
+        pinch: {
+          enabled: true
+        },
+      },
+      pan: {
+        enabled: true,
+      },
+    }
+  }
+};
 
 const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
   averageData,
@@ -96,7 +116,7 @@ const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
     ],
   };
 
-  return <Chart type="line" data={data} />;
+  return <Chart type="line" data={data} options={DEFAULT_OPTIONS} />;
 };
 
 export default IncomeLineChart;
