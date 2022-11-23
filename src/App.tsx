@@ -10,6 +10,7 @@ import UserList from "./pages/UserList";
 import "dayjs/locale/uk";
 import dayjs from "dayjs";
 import ProtectedRoute from "./ui/components/ProtectedRoute";
+import Main from "./pages/Main";
 
 dayjs.locale("uk");
 
@@ -20,6 +21,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
+    element: (
+      <ProtectedRoute>
+        <Main />
+      </ProtectedRoute>
+    )
+  }, {
+    path: "/home",
     element: (
       <ProtectedRoute role="user" fallback="/user-search">
         <DefaultLayout>
