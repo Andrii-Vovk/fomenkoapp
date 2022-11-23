@@ -35,7 +35,7 @@ const Main = () => {
     );
 }
 
-function ModuleCard({
+export function ModuleCard({
     title,
     description,
     icon,
