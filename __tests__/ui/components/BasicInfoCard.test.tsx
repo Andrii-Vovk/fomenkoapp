@@ -26,5 +26,11 @@ describe("BasicInfoCard", () => {
     renderWithProviders(<BasicInfoCard {...basicInfoCardData} />);
 
     expect(screen.queryByText('Чоловік, 42')).toBeInTheDocument();
+
+    basicInfoCardData.gender = 'female';
+
+    renderWithProviders(<BasicInfoCard {...basicInfoCardData} />);
+
+    expect(screen.queryByText('Жінка, 42')).toBeInTheDocument();
   });
 });

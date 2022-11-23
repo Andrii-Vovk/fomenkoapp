@@ -81,6 +81,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             marginTop={
               index === navItems.length - 1 ? "auto !important" : undefined
             }
+            key={e.tooltip}
           >
             <Icon as={e.icon} fontSize={"30px"} />
           </Center>

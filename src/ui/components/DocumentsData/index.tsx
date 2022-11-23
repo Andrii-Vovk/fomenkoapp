@@ -14,6 +14,7 @@ import { FunctionComponent } from "react";
 import dmsu from "./images/dmsu.png";
 import diia from "./images/diia.png";
 import helsi from "./images/helsi.png";
+import React from "react";
 
 export type DocumentItemProp = {
   type: string;
@@ -42,7 +43,7 @@ const DocumentsData: FunctionComponent<DocumentsDataProps> = (props) => {
         <VStack gap={"0.3em"}>
           {props.documentData.map((e) => {
             return (
-              <>
+              <React.Fragment key={e.text}>
                 <Flex alignItems={"center"} width={"100%"}>
                   <Image src={imageMapper[e.type]} width={"1.5em"} mr={"1em"} />
                   <Text flex={1} color={"gray.600"} fontSize={"14px"}>
@@ -50,7 +51,7 @@ const DocumentsData: FunctionComponent<DocumentsDataProps> = (props) => {
                   </Text>
                 </Flex>
                 <Divider />
-              </>
+              </React.Fragment>
             );
           })}
         </VStack>
