@@ -15,7 +15,7 @@ const ContactInfoList: React.FC<ContactInfoListProps> = ({ items }) => {
   return (
     <ul className={styles.wrapper}>
       {items.map((item) => (
-        <li className={styles.listItem}>
+        <li className={styles.listItem} key={'' + item.title}>
           <div className={styles.flex}>
             {item.icon}
             <Text fontSize="2xl">{item.title}</Text>

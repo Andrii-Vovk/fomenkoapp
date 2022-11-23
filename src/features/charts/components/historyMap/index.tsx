@@ -3,7 +3,7 @@ import Chart from "react-google-charts";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface HistoryMapProps {
-  data: any[];
+  data: (string | number)[][];
 }
 
 const HistoryMap: FunctionComponent<HistoryMapProps> = (props) => {

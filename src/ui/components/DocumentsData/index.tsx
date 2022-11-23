@@ -26,7 +26,7 @@ interface DocumentsDataProps {
 }
 
 const DocumentsData: FunctionComponent<DocumentsDataProps> = (props) => {
-  const imageMapper: any = {
+  const imageMapper: Record<string, string> = {
     dmsu: dmsu,
     diia: diia,
     helsi: helsi,
@@ -43,7 +43,7 @@ const DocumentsData: FunctionComponent<DocumentsDataProps> = (props) => {
         <VStack gap={"0.3em"}>
           {props.documentData.map((e) => {
             return (
-              <React.Fragment key={e.text}>
+              <React.Fragment key={e.type + e.text}>
                 <Flex alignItems={"center"} width={"100%"}>
                   <Image src={imageMapper[e.type]} width={"1.5em"} mr={"1em"} />
                   <Text flex={1} color={"gray.600"} fontSize={"14px"}>

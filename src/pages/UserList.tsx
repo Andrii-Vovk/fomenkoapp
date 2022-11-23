@@ -1,4 +1,4 @@
-import { Box, Button, Heading, IconButton, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Box, Heading, IconButton, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { FunctionComponent, useState } from "react";
 import { BsSearch } from "react-icons/bs";
@@ -12,7 +12,7 @@ interface UserListProps {
 
 const UserList: FunctionComponent<UserListProps> = () => {
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const { isLoading, error, data, isFetching } = useQuery(["usersData"], getUsers);
+    const {data } = useQuery(["usersData"], getUsers);
 
     return (<Box p={'20vh 4rem 0 4rem'}>
         <Heading fontWeight={'400'} mb={'3rem'}>Знайти тимчасово переміщену особу за іменем</Heading>

@@ -62,7 +62,7 @@ const Home = () => {
     ["get-salary", store.user.userId],
     () => getSalaryHistory({ id: userId ?? 0 })
   );
-  const { data: averageSalaryData, isLoading: averageSalaryLoading } = useQuery(
+  const { data: averageSalaryData } = useQuery(
     ["get-average", store.user.userId],
     () => getAverageSalary()
   );

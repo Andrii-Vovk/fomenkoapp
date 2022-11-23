@@ -71,6 +71,7 @@ const RequestTable: React.FC<RequestTableProps> = ({ requests }) => {
                 _hover={{ bg: "rgba(0, 0, 20, 0.02)" }}
                 transition={"all 0.3s"}
                 cursor={"pointer"}
+                key={request.createdAt.toString()}
               >
                 <>
                   <Td>{request.name}</Td>

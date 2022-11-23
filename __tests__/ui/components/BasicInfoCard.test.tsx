@@ -1,6 +1,4 @@
 import React from "react";
-import { CiLocationOn } from "react-icons/ci";
-import { MdFamilyRestroom } from "react-icons/md";
 import { renderWithProviders, screen } from "../../../src/config/renderWithProviders";
 import BasicInfoCard, { BasicInfoCardProps } from "../../../src/ui/components/BasicInfoCard";
 
@@ -11,11 +9,11 @@ const basicInfoCardData: BasicInfoCardProps = {
   name: `John Doe`,
   list: [
     {
-      icon: <CiLocationOn fontSize={"1.5em"} />,
+      icon: "icon",
       text: "Київ",
     },
     {
-      icon: <MdFamilyRestroom fontSize={"1.5em"} />,
+      icon: "icon",
       text: "Одружений",
     },
   ],

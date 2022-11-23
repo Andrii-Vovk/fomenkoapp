@@ -61,8 +61,8 @@ const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
     "December",
   ];
 
-  console.log(userData);
-  console.log(padToTwelve(userData));
+  // console.log(userData);
+  // console.log(padToTwelve(userData));
 
   const data = {
     labels,
