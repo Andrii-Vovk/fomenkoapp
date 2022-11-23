@@ -8,5 +8,9 @@ describe("Navbar", () => {
 
     screen.getByTestId('nav-item-2').click();
     screen.getByTestId('nav-item-3').click();
+
+    (globalThis as any).userRole = 'admin';
+
+    renderWithProviders(<Navbar />);
   });
 });

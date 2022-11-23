@@ -42,6 +42,7 @@ const UserListItself: FunctionComponent<UserListItselfProps> = (props) => {
                 _hover={{ bg: "rgba(0, 0, 20, 0.02)" }}
                 transition={"all 0.3s"}
                 cursor={"pointer"}
+                data-testId={`user-${e.id}`}
                 onClick={() => navigate(`/user/${e.id}`)}
               >
                 <Td>

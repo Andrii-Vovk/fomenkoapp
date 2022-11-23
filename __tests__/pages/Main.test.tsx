@@ -7,6 +7,7 @@ describe("Main", () => {
     renderWithProviders(<Main />);
 
     expect(screen.queryByText('Відкрити')).toBeInTheDocument();
+    screen.queryByText('Відкрити')!.click();
   });
 });
 

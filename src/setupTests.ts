@@ -16,13 +16,30 @@ jest.mock('react-query', () => ({
             func();
             Promise.resolve({});
         }),
-    })
+    }),
+    useQuery: (dep: string[]) => {
+        if (dep[0] === 'usersData') {
+            return {
+                data: [
+                    {
+                        id: 1,
+                        fullName: 'test',
+                    },
+                    {
+                        id: 2,
+                        fullName: 'test2',
+                        isActive: true,
+                    }
+                ]
+            }
+        }
+    },
 }));
 
 jest.mock('./store', () => jest.fn(() => ({
     user: {
         username: 'Test',
-        role: 'user',
+        role: (globalThis as any).userRole || 'user',
     },
     removeUser: jest.fn(),
 })));
