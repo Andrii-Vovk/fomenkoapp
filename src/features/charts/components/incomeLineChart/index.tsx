@@ -14,6 +14,7 @@ import {
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 
+
 ChartJS.register(
   Filler,
   LinearScale,
@@ -24,7 +25,7 @@ ChartJS.register(
   Legend,
   Tooltip,
   LineController,
-  BarController
+  BarController,
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -87,9 +88,11 @@ const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
         backgroundColor: "rgba(53, 162, 235, 0.2)",
         borderColor: "rgba(53, 162, 235, 0.2)",
         borderWidth: 2,
+        radius: 0,
       },
     ],
   };
+
 
   return <Chart type="line" data={data} />;
 };

@@ -75,6 +75,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             borderRadius={"6px"}
             cursor={"pointer"}
             onClick={() => onClick(e)}
+            data-testid={`nav-item-${index}`}
             transition="all 0.3s"
             _hover={{ transform: "scale(1.1)" }}
             marginTop={
