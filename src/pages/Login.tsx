@@ -50,7 +50,7 @@ const Login: FunctionComponent = () => {
         <Card size={"lg"} width={"20vw"}>
           <CardHeader pb={"0px"}>
             <Heading size="lg" fontWeight={"400"}>
-              Login
+              <b>І</b>нформаційно-<b>К</b>омунікаційний <b>Х</b>аб
             </Heading>
           </CardHeader>
           <CardBody pb={"1rem"}>
@@ -58,7 +58,7 @@ const Login: FunctionComponent = () => {
               <Input
                 variant="flushed"
                 value={loginState.username}
-                placeholder="Login"
+                placeholder="Логін"
                 onChange={(e) =>
                   setLoginState({
                     ...loginState,
@@ -68,7 +68,7 @@ const Login: FunctionComponent = () => {
               />
               <Input
                 variant="flushed"
-                placeholder="Password"
+                placeholder="Пароль"
                 value={loginState.password}
                 type="password"
                 onChange={(e) =>
@@ -82,7 +82,7 @@ const Login: FunctionComponent = () => {
           </CardBody>
           <CardFooter justifyContent={"flex-end"} pt={0} pb={"1em"}>
             <Button colorScheme="facebook" fontSize={"1.2rem"} onClick={onLogin}>
-              Log in
+              Увійти
             </Button>
           </CardFooter>
         </Card>
