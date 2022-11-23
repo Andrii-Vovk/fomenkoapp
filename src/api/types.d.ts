@@ -54,3 +54,13 @@ interface SalaryHistoryItem {
   aidIncome: number;
   onDate: Date;
 }
+
+interface AverageSalaryItem {
+  salaryIncome: number;
+  aidIncome: number;
+}
+
+interface AverageSalaryRequest {
+  fromDate: string;
+  toDate: string;
+}
