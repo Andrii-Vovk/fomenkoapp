@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardBody, CardHeader, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import Masonry from "react-responsive-masonry";
 import { useNavigate } from "react-router-dom";
+import { BsInfoSquare, BsCreditCard, BsChatRightText, BsBasket, BsFileBarGraph } from "react-icons/bs";
 import useUserStore from "../store";
 
 const Main = () => {
@@ -14,18 +15,20 @@ const Main = () => {
             <Box p={"2em"}>
                 <Heading fontSize={"2em"} fontWeight={500} mb={"2rem"}>
                     Вітаємо, {store.user.username}
+                    <Text as="span" color="red.600" fontSize="md" ml="0.5rem" cursor="pointer" onClick={() => store.removeUser()}>Вихід</Text>
                     <Text fontSize="md" mt="0.5rem" color="gray.600">
-                        Оберіть потрібний пункт
+                        Оберіть потрібний модуль
                     </Text>
                 </Heading>
                 <Masonry columnsCount={3} gutter={"1em"}>
-                    <ModuleCard title="Модуль обліку" description="Облік фінансів" />
-                    <ModuleCard title="Інформаційний модуль" description="Отримати загальну інформацію" />
-                    <ModuleCard title="Комунікаційний модуль" description="Зв'яжіться з нашими спеціалістами" />
-                    <ModuleCard title="Модуль формування допомоги" description="Отримайте допомогу" />
+                    <ModuleCard title="Модуль обліку" description="Облік фінансів" icon={<BsCreditCard size="3rem" />} />
+                    <ModuleCard title="Інформаційний модуль" description="Отримати загальну інформацію" icon={<BsInfoSquare size="3rem" />} />
+                    <ModuleCard title="Комунікаційний модуль" description="Зв'яжіться з нашими спеціалістами" icon={<BsChatRightText size="3rem" />} />
+                    <ModuleCard title="Модуль формування допомоги" description="Отримайте допомогу" icon={<BsBasket size="3rem" />} />
                     <ModuleCard
                         title="Модуль аналізу і статистики"
-                        description="Дізнайтеся статистику"
+                        description="Дізнайтесь статистику"
+                        icon={<BsFileBarGraph size="3rem" />}
                         buttonText="Відкрити"
                         onButtonClick={() => navigate('/home')}
                     />
@@ -43,13 +46,13 @@ export function ModuleCard({
     onButtonClick,
 }: { title: string, description: string, icon?: JSX.Element, buttonText?: string, onButtonClick?: () => void }) {
     return (
-        <Card minH="10rem">
-            <CardHeader p="0.5em 1em">
+        <Card minH="12rem" _hover={{backgroundColor: 'gray.100'}} transition="background-color 150ms ease-in">
+            <CardHeader p="0.5em 1em" display="flex" alignItems="center" gap="1rem">
+                {icon}
                 <Heading size="lg">{title}</Heading>
             </CardHeader>
             <CardBody>
                 <Flex direction="column">
-                    {icon}
                     <Text fontSize="md" color="gray.600">
                         {description}
                     </Text>

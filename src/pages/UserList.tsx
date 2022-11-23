@@ -14,7 +14,7 @@ const UserList: FunctionComponent<UserListProps> = () => {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const {data } = useQuery(["usersData"], getUsers);
 
-    return (<Box p={'20vh 4rem 0 4rem'}>
+    return (<Box p="4rem">
         <Heading fontWeight={'400'} mb={'3rem'}>Знайти тимчасово переміщену особу за іменем</Heading>
         <InputGroup size='md' mb={'2em'}>
             <Input
