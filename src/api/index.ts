@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import dayjs from "dayjs";
 import { SignInUser } from "../store";
 
 const API_BASE = "https://localhost:7000/api";
@@ -64,4 +65,16 @@ export function getSalaryHistory({
   return axios
     .get(`${API_BASE}/Finance/${id}`)
     .then((res) => res as AxiosResponse<SalaryHistoryItem[]>);
+}
+
+export function getAverageSalary() {
+  return axios.get<AverageSalaryRequest, AxiosResponse<AverageSalaryItem>>(
+    `${API_BASE}/Finance/Average`,
+    {
+      params: {
+        fromDate: "19900101",
+        toDate: dayjs(new Date()).format("YYYYMMDD"),
+      },
+    }
+  );
 }

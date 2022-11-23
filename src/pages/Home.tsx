@@ -20,6 +20,7 @@ import IncomePieChart from "../features/charts/components/incomePieChart";
 import IncomeLineChart from "../features/charts/components/incomeLineChart";
 import { useQuery } from "react-query";
 import {
+  getAverageSalary,
   getDocuments,
   getLocationHistory,
   getRequests,
@@ -60,6 +61,10 @@ const Home = () => {
   const { data: salaryData, isLoading: salaryLoading } = useQuery(
     ["get-salary", store.user.userId],
     () => getSalaryHistory({ id: userId ?? 0 })
+  );
+  const { data: averageSalaryData, isLoading: averageSalaryLoading } = useQuery(
+    ["get-average", store.user.userId],
+    () => getAverageSalary()
   );
 
   const getIcon = (bool: boolean | undefined) =>
@@ -127,9 +132,10 @@ const Home = () => {
   ];
 
   const totalSalary = {
-    aid: salaryData?.data.reduce((acc, curr) => acc + curr.aidIncome, 0) ?? 0,
-    salary:
+    aid:
       salaryData?.data.reduce((acc, curr) => acc + curr.salaryIncome, 0) ?? 0,
+    salary:
+      salaryData?.data.reduce((acc, curr) => acc + curr.aidIncome, 0) ?? 0,
   };
 
   const requestsItems: RefugeeHelpRequest[] =
@@ -190,7 +196,12 @@ const Home = () => {
             <IncomeLineChart
               userData={salaryData?.data.map((d) => d.salaryIncome) ?? []}
               aidData={salaryData?.data.map((d) => d.aidIncome) ?? []}
-              averageData={Array.from({ length: 12 }).fill(4000) as number[]}
+              averageData={
+                Array.from({ length: 12 }).fill(
+                  (averageSalaryData?.data.aidIncome ?? 0) +
+                    (averageSalaryData?.data.salaryIncome ?? 0)
+                ) as number[]
+              }
             />
           }
         />

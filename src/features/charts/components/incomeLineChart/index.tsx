@@ -14,7 +14,6 @@ import {
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 
-
 ChartJS.register(
   Filler,
   LinearScale,
@@ -25,7 +24,7 @@ ChartJS.register(
   Legend,
   Tooltip,
   LineController,
-  BarController,
+  BarController
 );
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -36,10 +35,10 @@ interface IncomeLineChartProps {
 }
 
 const padToTwelve = (array: number[]) => [
-  ...Array.from({ length: 4 })
+  ...Array.from({ length: 12 })
     .fill(null)
     .slice(0, -1 * array.length),
-  ...array,
+  ...array.slice(-12),
 ];
 
 const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
@@ -61,6 +60,10 @@ const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
     "November",
     "December",
   ];
+
+  console.log(userData);
+  console.log(padToTwelve(userData));
+
   const data = {
     labels,
     datasets: [
@@ -92,7 +95,6 @@ const IncomeLineChart: FunctionComponent<IncomeLineChartProps> = ({
       },
     ],
   };
-
 
   return <Chart type="line" data={data} />;
 };
