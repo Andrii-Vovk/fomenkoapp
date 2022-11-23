@@ -47,7 +47,7 @@ const Login: FunctionComponent = () => {
   return (
     <Center height={"100vh"}>
       <ScaleFade in initialScale={0.5}>
-        <Card size={"lg"} width={"20vw"}>
+        <Card size={"lg"} width={"max(300px, 20vw)"}>
           <CardHeader pb={"0px"}>
             <Heading size="lg" fontWeight={"400"}>
               <b>І</b>нформаційно-<br/>

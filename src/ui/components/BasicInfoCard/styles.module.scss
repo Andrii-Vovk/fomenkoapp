@@ -1,9 +1,11 @@
 .headerWrapper {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   gap: 5px;
+
   .titleWrapper {
     display: flex;
     flex-direction: column;

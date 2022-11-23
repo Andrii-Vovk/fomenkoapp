@@ -1,5 +1,5 @@
 import { Box, Button, Card, CardBody, CardHeader, Fade, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useNavigate } from "react-router-dom";
 import { BsInfoSquare, BsCreditCard, BsChatRightText, BsBasket, BsFileBarGraph } from "react-icons/bs";
 import useUserStore from "../store";
@@ -20,19 +20,21 @@ const Main = () => {
                         Оберіть потрібний модуль
                     </Text>
                 </Heading>
-                <Masonry columnsCount={3} gutter={"1em"}>
-                    <ModuleCard title="Модуль обліку" description="Облік фінансів" icon={<BsCreditCard size="3rem" />} />
-                    <ModuleCard title="Інформаційний модуль" description="Отримати загальну інформацію" icon={<BsInfoSquare size="3rem" />} />
-                    <ModuleCard title="Комунікаційний модуль" description="Зв'яжіться з нашими спеціалістами" icon={<BsChatRightText size="3rem" />} />
-                    <ModuleCard title="Модуль формування допомоги" description="Отримайте допомогу" icon={<BsBasket size="3rem" />} />
-                    <ModuleCard
-                        title="Модуль аналізу і статистики"
-                        description="Дізнайтесь статистику"
-                        icon={<BsFileBarGraph size="3rem" />}
-                        buttonText="Відкрити"
-                        onButtonClick={() => navigate('/home')}
-                    />
-                </Masonry>
+                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+                    <Masonry columnsCount={3} gutter={"1em"}>
+                        <ModuleCard title="Модуль обліку" description="Облік фінансів" icon={<BsCreditCard size="3rem" />} />
+                        <ModuleCard title="Інформаційний модуль" description="Отримати загальну інформацію" icon={<BsInfoSquare size="3rem" />} />
+                        <ModuleCard title="Комунікаційний модуль" description="Зв'яжіться з нашими спеціалістами" icon={<BsChatRightText size="3rem" />} />
+                        <ModuleCard title="Модуль формування допомоги" description="Отримайте допомогу" icon={<BsBasket size="3rem" />} />
+                        <ModuleCard
+                            title="Модуль аналізу і статистики"
+                            description="Дізнайтесь статистику"
+                            icon={<BsFileBarGraph size="3rem" />}
+                            buttonText="Відкрити"
+                            onButtonClick={() => navigate('/home')}
+                        />
+                    </Masonry>
+                </ResponsiveMasonry>
             </Box>
         </div>
     );

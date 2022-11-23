@@ -4,7 +4,7 @@ import BasicInfoCard, {
 } from "../ui/components/BasicInfoCard";
 import { CiLocationOn } from "react-icons/ci";
 import { MdFamilyRestroom } from "react-icons/md";
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import ChartCard from "../features/charts/components/chartCard";
 import HistoryMap from "../features/charts/components/historyMap";
 import DocumentsData from "../ui/components/DocumentsData";
@@ -163,49 +163,51 @@ const Home = () => {
       <Heading fontSize={"3em"} fontWeight={500} mb={"1rem"}>
         Ваша статистика
       </Heading>
-      <Masonry columnsCount={3} gutter={"1em"}>
-        <BasicInfoCard {...basicInfoCardData} />
-        <ContactList items={contactData} />
-        <DocumentsData documentData={documentData} />
-        <ListInfoCard list={needsList} title="Базові Потреби" />
-        {locationData?.data && locationData?.data.length > 0 ? (
-          <ChartCard
-            cardTitle="Історія місця проживання"
-            chartElement={<HistoryMap data={historyMapData} />}
-          />
-        ) : (
-          <Card>
-            <CardHeader pb={0}>
-              <Heading fontWeight={500} fontSize={"1.5rem"}>
-                Історія місця проживання
-              </Heading>
-            </CardHeader>
-            <CardBody>
-              Інформація про історію місць проживання відсутня
-            </CardBody>
-          </Card>
-        )}
-        <ChartCard
-          cardTitle="Дохід"
-          chartElement={<IncomePieChart {...totalSalary} />}
-        />
-        <RequestTable requests={requestsItems} />
-        <ChartCard
-          cardTitle="Графік доходів"
-          chartElement={
-            <IncomeLineChart
-              userData={salaryData?.data.map((d) => d.salaryIncome) ?? []}
-              aidData={salaryData?.data.map((d) => d.aidIncome) ?? []}
-              averageData={
-                Array.from({ length: 12 }).fill(
-                  (averageSalaryData?.data.aidIncome ?? 0) +
-                  (averageSalaryData?.data.salaryIncome ?? 0)
-                ) as number[]
-              }
+      <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+        <Masonry columnsCount={3} gutter={"1em"}>
+          <BasicInfoCard {...basicInfoCardData} />
+          <ContactList items={contactData} />
+          <DocumentsData documentData={documentData} />
+          <ListInfoCard list={needsList} title="Базові Потреби" />
+          {locationData?.data && locationData?.data.length > 0 ? (
+            <ChartCard
+              cardTitle="Історія місця проживання"
+              chartElement={<HistoryMap data={historyMapData} />}
             />
-          }
-        />
-      </Masonry>
+          ) : (
+            <Card>
+              <CardHeader pb={0}>
+                <Heading fontWeight={500} fontSize={"1.5rem"}>
+                  Історія місця проживання
+                </Heading>
+              </CardHeader>
+              <CardBody>
+                Інформація про історію місць проживання відсутня
+              </CardBody>
+            </Card>
+          )}
+          <ChartCard
+            cardTitle="Дохід"
+            chartElement={<IncomePieChart {...totalSalary} />}
+          />
+          <RequestTable requests={requestsItems} />
+          <ChartCard
+            cardTitle="Графік доходів"
+            chartElement={
+              <IncomeLineChart
+                userData={salaryData?.data.map((d) => d.salaryIncome) ?? []}
+                aidData={salaryData?.data.map((d) => d.aidIncome) ?? []}
+                averageData={
+                  Array.from({ length: 12 }).fill(
+                    (averageSalaryData?.data.aidIncome ?? 0) +
+                    (averageSalaryData?.data.salaryIncome ?? 0)
+                  ) as number[]
+                }
+              />
+            }
+          />
+        </Masonry>
+      </ResponsiveMasonry>
     </Box>
   );
 };
