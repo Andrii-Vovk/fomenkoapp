@@ -6,8 +6,13 @@ describe("Main", () => {
   it("Renders without error", () => {
     renderWithProviders(<Main />);
 
-    expect(screen.queryByText('Відкрити')).toBeInTheDocument();
-    screen.queryByText('Відкрити')!.click();
+    const logoutButton = screen.getByText("Вихід");
+    expect(logoutButton).toBeInTheDocument();
+    logoutButton.click();
+
+    const openButton = screen.queryByText('Відкрити');
+    expect(openButton).toBeInTheDocument();
+    openButton!.click();
   });
 });
 
