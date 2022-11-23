@@ -35,3 +35,33 @@ export function getLocationHistory({
     .get(`${API_BASE}/Location/${id}`)
     .then((res) => res as AxiosResponse<LocationHistoryItem[]>);
 }
+
+export function getDocuments({
+  id,
+}: {
+  id: number;
+}): Promise<AxiosResponse<DocumentItem[]>> {
+  return axios
+    .get(`${API_BASE}/Document/${id}`)
+    .then((res) => res as AxiosResponse<DocumentItem[]>);
+}
+
+export function getRequests({
+  id,
+}: {
+  id: number;
+}): Promise<AxiosResponse<RequestItem[]>> {
+  return axios
+    .get(`${API_BASE}/Request/${id}`)
+    .then((res) => res as AxiosResponse<RequestItem[]>);
+}
+
+export function getSalaryHistory({
+  id,
+}: {
+  id: number;
+}): Promise<AxiosResponse<SalaryHistoryItem[]>> {
+  return axios
+    .get(`${API_BASE}/Finance/${id}`)
+    .then((res) => res as AxiosResponse<SalaryHistoryItem[]>);
+}
