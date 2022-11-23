@@ -1,4 +1,3 @@
-import styles from "./styles.module.scss";
 import { Card, CardBody, CardHeader, Heading } from "@chakra-ui/react";
 import StyledList, { ListItem } from "../StyledList";
 
@@ -14,9 +13,7 @@ const ListInfoCard: React.FC<Props> = ({ list, title }) => {
         <Heading size="md">{title}</Heading>
       </CardHeader>
       <CardBody>
-        <div className={styles.list}>
-          <StyledList items={list} />
-        </div>
+        <StyledList items={list} />
       </CardBody>
     </Card>
   );

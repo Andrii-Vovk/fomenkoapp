@@ -50,7 +50,9 @@ const Login: FunctionComponent = () => {
         <Card size={"lg"} width={"20vw"}>
           <CardHeader pb={"0px"}>
             <Heading size="lg" fontWeight={"400"}>
-              <b>І</b>нформаційно-<b>К</b>омунікаційний <b>Х</b>аб
+              <b>І</b>нформаційно-<br/>
+              <b>К</b>омунікаційний<br/>
+              <b>Х</b>аб
             </Heading>
           </CardHeader>
           <CardBody pb={"1rem"}>
