@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardBody, CardHeader, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, CardHeader, Fade, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import Masonry from "react-responsive-masonry";
 import { useNavigate } from "react-router-dom";
 import { BsInfoSquare, BsCreditCard, BsChatRightText, BsBasket, BsFileBarGraph } from "react-icons/bs";
@@ -46,25 +46,27 @@ export function ModuleCard({
     onButtonClick,
 }: { title: string, description: string, icon?: JSX.Element, buttonText?: string, onButtonClick?: () => void }) {
     return (
-        <Card minH="12rem" _hover={{backgroundColor: 'gray.100'}} transition="background-color 150ms ease-in">
-            <CardHeader p="0.5em 1em" display="flex" alignItems="center" gap="1rem">
-                {icon}
-                <Heading size="lg">{title}</Heading>
-            </CardHeader>
-            <CardBody>
-                <Flex direction="column">
-                    <Text fontSize="md" color="gray.600">
-                        {description}
-                    </Text>
-                    <Spacer flexGrow="1" />
-                    {buttonText && (
-                        <Button alignSelf="end" colorScheme="facebook" fontSize={"1.2rem"} onClick={onButtonClick}>
-                            {buttonText}
-                        </Button>
-                    )}
-                </Flex>
-            </CardBody>
-        </Card>
+        <Fade in>
+            <Card minH="12rem" _hover={{ backgroundColor: 'gray.100' }} transition="background-color 150ms ease-in">
+                <CardHeader p="0.5em 1em" display="flex" alignItems="center" gap="1rem">
+                    {icon}
+                    <Heading size="lg">{title}</Heading>
+                </CardHeader>
+                <CardBody>
+                    <Flex direction="column">
+                        <Text fontSize="md" color="gray.600">
+                            {description}
+                        </Text>
+                        <Spacer flexGrow="1" />
+                        {buttonText && (
+                            <Button alignSelf="end" colorScheme="facebook" fontSize={"1.2rem"} onClick={onButtonClick}>
+                                {buttonText}
+                            </Button>
+                        )}
+                    </Flex>
+                </CardBody>
+            </Card>
+        </Fade>
     );
 }
 

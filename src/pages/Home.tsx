@@ -199,7 +199,7 @@ const Home = () => {
               averageData={
                 Array.from({ length: 12 }).fill(
                   (averageSalaryData?.data.aidIncome ?? 0) +
-                    (averageSalaryData?.data.salaryIncome ?? 0)
+                  (averageSalaryData?.data.salaryIncome ?? 0)
                 ) as number[]
               }
             />

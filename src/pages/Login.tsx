@@ -7,6 +7,7 @@ import {
   Center,
   Heading,
   Input,
+  ScaleFade,
   VStack,
 } from "@chakra-ui/react";
 import { FunctionComponent, useState } from "react";
@@ -45,45 +46,47 @@ const Login: FunctionComponent = () => {
 
   return (
     <Center height={"100vh"}>
-      <Card size={"lg"} width={"20vw"}>
-        <CardHeader pb={"0px"}>
-          <Heading size="lg" fontWeight={"400"}>
-            Login
-          </Heading>
-        </CardHeader>
-        <CardBody pb={"1rem"}>
-          <VStack spacing={"1rem"}>
-            <Input
-              variant="flushed"
-              value={loginState.username}
-              placeholder="Login"
-              onChange={(e) =>
-                setLoginState({
-                  ...loginState,
-                  username: e.target.value,
-                })
-              }
-            />
-            <Input
-              variant="flushed"
-              placeholder="Password"
-              value={loginState.password}
-              type="password"
-              onChange={(e) =>
-                setLoginState({
-                  ...loginState,
-                  password: e.target.value,
-                })
-              }
-            />
-          </VStack>
-        </CardBody>
-        <CardFooter justifyContent={"flex-end"} pt={0} pb={"1em"}>
-          <Button colorScheme="facebook" fontSize={"1.2rem"} onClick={onLogin}>
-            Log in
-          </Button>
-        </CardFooter>
-      </Card>
+      <ScaleFade in initialScale={0.5}>
+        <Card size={"lg"} width={"20vw"}>
+          <CardHeader pb={"0px"}>
+            <Heading size="lg" fontWeight={"400"}>
+              Login
+            </Heading>
+          </CardHeader>
+          <CardBody pb={"1rem"}>
+            <VStack spacing={"1rem"}>
+              <Input
+                variant="flushed"
+                value={loginState.username}
+                placeholder="Login"
+                onChange={(e) =>
+                  setLoginState({
+                    ...loginState,
+                    username: e.target.value,
+                  })
+                }
+              />
+              <Input
+                variant="flushed"
+                placeholder="Password"
+                value={loginState.password}
+                type="password"
+                onChange={(e) =>
+                  setLoginState({
+                    ...loginState,
+                    password: e.target.value,
+                  })
+                }
+              />
+            </VStack>
+          </CardBody>
+          <CardFooter justifyContent={"flex-end"} pt={0} pb={"1em"}>
+            <Button colorScheme="facebook" fontSize={"1.2rem"} onClick={onLogin}>
+              Log in
+            </Button>
+          </CardFooter>
+        </Card>
+      </ScaleFade>
     </Center>
   );
 };
