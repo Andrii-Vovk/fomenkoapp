@@ -183,7 +183,6 @@ const Home = () => {
           cardTitle="Дохід"
           chartElement={<IncomePieChart {...totalSalary} />}
         />
-        <pre>{JSON.stringify(locationData?.data, null, 2)}</pre>
         <RequestTable requests={requestsItems} />
         <ChartCard
           cardTitle="Графік доходів"
