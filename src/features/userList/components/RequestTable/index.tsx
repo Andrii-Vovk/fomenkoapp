@@ -9,7 +9,6 @@ import {
   PopoverBody,
   PopoverCloseButton,
   PopoverContent,
-  PopoverHeader,
   PopoverTrigger,
   Table,
   Tag,
@@ -26,7 +25,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 export interface RefugeeHelpRequest {
   name: React.ReactNode;
   createdAt: Date;
-  status: "fulfilled" | "approved" | "in review" | "declined";
+  status: RefugeeRequestStatus;
   description?: React.ReactNode;
 }
 
@@ -37,6 +36,7 @@ interface RequestTableProps {
 const RequestTable: React.FC<RequestTableProps> = ({ requests }) => {
   const colors = {
     fulfilled: "blue",
+    fullfiled: "blue",
     approved: "green",
     "in review": "yellow",
     declined: "red",
@@ -66,12 +66,12 @@ const RequestTable: React.FC<RequestTableProps> = ({ requests }) => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr
-              _hover={{ bg: "rgba(0, 0, 20, 0.02)" }}
-              transition={"all 0.3s"}
-              cursor={"pointer"}
-            >
-              {requests.map((request) => (
+            {requests.map((request) => (
+              <Tr
+                _hover={{ bg: "rgba(0, 0, 20, 0.02)" }}
+                transition={"all 0.3s"}
+                cursor={"pointer"}
+              >
                 <>
                   <Td>{request.name}</Td>
                   <Td>{dayjs(request.createdAt).format("DD MMMM YYYY")}</Td>
@@ -108,8 +108,8 @@ const RequestTable: React.FC<RequestTableProps> = ({ requests }) => {
                     </Td>
                   )}
                 </>
-              ))}
-            </Tr>
+              </Tr>
+            ))}
           </Tbody>
         </Table>
       </CardBody>
